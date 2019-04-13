@@ -19,12 +19,14 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpClientStack;
 import com.android.volley.toolbox.StringRequest;
 import com.github.pavlospt.CircleView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -34,8 +36,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private CircleView circularProgress;
     private ServerImageObject imageObject;
     private RequestQueue queue;
-    private static final String POST_PARAMS = "photo=10";
+    private static final String POST_PARAMS = "image=2";
 
 
     @Override
@@ -65,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         if(!hasCamera()){
             take_photo.setEnabled(false);
         }
-        new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
+//        new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
     }
 
     //check if the user has a camera
@@ -91,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
            saveToInternalStorage(photo);
 
            // loadImageFromStorage("data/data/com.example.grad/app_imageDir");
-
+            new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
 
             //uploadSelectedImageToServer();
             // request cagirma
@@ -223,43 +227,52 @@ public class MainActivity extends AppCompatActivity {
     private class DownloadImageTask extends AsyncTask <String, Void, String> {
         protected String doInBackground(String... urls) {
             try{
-    //            URL obj = new URL(urls[0]);
-    //            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-    //            con.setRequestMethod("GET");
-    //            con.setRequestProperty("User-Agent", "Mozilla/5.0");
-    //            int responseCode = con.getResponseCode();
-    //            System.out.println("GET Response Code :: " + responseCode);
-    //            if (responseCode == HttpURLConnection.HTTP_OK) { // success
-    //                BufferedReader in = new BufferedReader(new InputStreamReader(
-    //                        con.getInputStream()));
-    //                String inputLine;
-    //                StringBuffer response = new StringBuffer();
-    //
-    //                while ((inputLine = in.readLine()) != null) {
-    //                    response.append(inputLine);
-    //                }
-    //                in.close();
-    //
-    //                // print result
-    //                return response.toString();
-    //            } else {
-    //                System.out.println("GET request not worked");
-    //            }
+//                URL obj = new URL(urls[0]);
+//                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+//                con.setRequestMethod("GET");
+//                con.setRequestProperty("User-Agent", "Mozilla/5.0");
+//                int responseCode = con.getResponseCode();
+//                System.out.println("GET Response Code :: " + responseCode);
+//                if (responseCode == HttpURLConnection.HTTP_OK) { // success
+//                    BufferedReader in = new BufferedReader(new InputStreamReader(
+//                            con.getInputStream()));
+//                    String inputLine;
+//                    StringBuffer response = new StringBuffer();
+//
+//                    while ((inputLine = in.readLine()) != null) {
+//                        response.append(inputLine);
+//                    }
+//                    in.close();
+//
+//                    // print result
+//                    return response.toString();
+//                } else {
+//                    System.out.println("GET request not worked");
+//                }
+
+
+                byte[] postData       = POST_PARAMS.getBytes();
+                int    postDataLength = postData.length;
                 URL obj = new URL(urls[0]);
                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
                 con.setRequestMethod("POST");
                 con.setRequestProperty("User-Agent", "Mozilla/5.0");
 
+
                 // For POST only - START
                 con.setDoOutput(true);
+                con.setInstanceFollowRedirects( false );
+                con.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
                 OutputStream os = con.getOutputStream();
-                os.write(POST_PARAMS.getBytes());
+                os.write(postData);
                 os.flush();
                 os.close();
                 // For POST only - END
 
                 int responseCode = con.getResponseCode();
                 System.out.println("POST Response Code :: " + responseCode);
+
+
 
                 if (responseCode == HttpURLConnection.HTTP_OK) { //success
                     BufferedReader in = new BufferedReader(new InputStreamReader(
