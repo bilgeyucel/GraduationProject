@@ -46,6 +46,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
+import it.sauronsoftware.ftp4j.FTPClient;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -141,6 +143,35 @@ public class MainActivity extends AppCompatActivity {
 
 //         loadImageFromStorage("data/data/com.example.grad/app_imageDir");
 //         new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
+           new AsyncTask<String, Void, String>() {
+                @Override
+                protected String doInBackground(String... params) {
+                    int port = 5000;
+                    String server = "134.209.226.2";
+                    String username = "grad";
+                    String password = "kadircaneksi";
+                    String localPath = "data/data/com.example.grad/app_imageDir/"; //yerel depodaki ftp'ye yükleyeceğiniz dosyanın yolu
+                    String remotePath = "/home/grad/grad_project/sudokuSolving/sudoku-examples"; //ftp'deki yolumuz
+                    String newDirectory = "/"; //yeni oluşturacağımız klasörümüz
+
+                    FTPClient ftpClient = new FTPClient(); //ftp clientimiz
+                    File file = new File(localPath); //yükleyeceğimiz dosyamız
+
+                    try {
+                        ftpClient.setType(FTPClient.TYPE_BINARY);
+                        ftpClient.connect(server, port);
+                        ftpClient.login(username, password);
+                        ftpClient.changeDirectory(remotePath); //ftp'mizde yükleyeceğimiz dosyanın yolunnu şu şekilde değiştirebilirsiniz.
+                        ftpClient.createDirectory(newDirectory); //bu şekilde yeni klasör oluşturabilirsiniz.
+                        ftpClient.changeDirectory(newDirectory); //yeni klasörü oluşturduktan sonra yolunuzu değiştirmeyi unutmayın
+                        ftpClient.upload(file);
+                        ftpClient.logout();
+                    } catch (Exception e) {
+                        Log.e("TAG", e.getMessage());
+                    }
+                    return null;
+                }
+           }.execute();
         }
     }
 
