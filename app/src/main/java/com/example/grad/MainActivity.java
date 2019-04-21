@@ -133,11 +133,13 @@ public class MainActivity extends AppCompatActivity {
            Bitmap photo = (Bitmap) extras.get("data");
            image_photo.setImageBitmap(photo);
            String s = encodeToBase64(photo,Bitmap.CompressFormat.PNG,100);
-           POST_PARAMS = POST_PARAMS+ s;
-           Log.d("COMPRESS", POST_PARAMS);
-//           saveToInternalStorage(photo);
+           int length = s.length();
+            Log.d("COMPRESS", Integer.toString(length));
+           POST_PARAMS = POST_PARAMS + s;
+//           Log.d("COMPRESS", POST_PARAMS);
+           saveToInternalStorage(photo);
 
-           // loadImageFromStorage("data/data/com.example.grad/app_imageDir");
+//            loadImageFromStorage("data/data/com.example.grad/app_imageDir");
              new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
 //            viewModel.setRating(data.getStringExtra(KEY));
 
@@ -377,7 +379,7 @@ public class MainActivity extends AppCompatActivity {
                     // print result
                     // burada baska bir fonk cagir ve o bastirma islemini yapsin
                     solution=response.toString();
-                    System.out.println(response.toString());
+//                    System.out.println(response.toString());
                 } else {
                     System.out.println("POST request not worked");
                 }
