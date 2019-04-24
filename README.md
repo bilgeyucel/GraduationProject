@@ -9,3 +9,6 @@ TODO:
 - Error Handling
 - Eat Lahmacun
 
+Necessary links:
+https://sourceforge.net/projects/jsch/ //jar file
+
