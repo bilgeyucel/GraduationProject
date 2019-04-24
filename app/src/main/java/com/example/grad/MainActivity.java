@@ -46,7 +46,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
-import it.sauronsoftware.ftp4j.FTPClient;
+//import it.sauronsoftware.ftp4j.FTPClient;
+import com.jcraft.jsch.*;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -130,20 +131,20 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-           // get the photo
-           Bundle extras = data.getExtras();
-           Bitmap photo = (Bitmap) extras.get("data");
-           image_photo.setImageBitmap(photo);
+            // get the photo
+            Bundle extras = data.getExtras();
+            Bitmap photo = (Bitmap) extras.get("data");
+            image_photo.setImageBitmap(photo);
 
-           // http things
-           String s = encodeToBase64(photo,Bitmap.CompressFormat.PNG,100);
-           int length = s.length();
-           Log.d("COMPRESS", Integer.toString(length));
-           POST_PARAMS = POST_PARAMS + s;
+            // http things
+            String s = encodeToBase64(photo,Bitmap.CompressFormat.PNG,100);
+            int length = s.length();
+            Log.d("COMPRESS", Integer.toString(length));
+            POST_PARAMS = POST_PARAMS + s;
 
 //         loadImageFromStorage("data/data/com.example.grad/app_imageDir");
-//         new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
-           new AsyncTask<String, Void, String>() {
+            new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
+           /*new AsyncTask<String, Void, String>() {
                 @Override
                 protected String doInBackground(String... params) {
                     int port = 5000;
@@ -171,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     return null;
                 }
-           }.execute();
+           }.execute();*/
         }
     }
 
@@ -254,76 +255,159 @@ public class MainActivity extends AppCompatActivity {
 //
 //    }
 
+    /* private class DownloadImageTask extends AsyncTask <String, Void, String> {
+         protected String doInBackground(String... urls) {
+             try{
+ //                URL obj = new URL(urls[0]);
+ //                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+ //                con.setRequestMethod("GET");
+ //                con.setRequestProperty("User-Agent", "Mozilla/5.0");
+ //                int responseCode = con.getResponseCode();
+ //                System.out.println("GET Response Code :: " + responseCode);
+ //                if (responseCode == HttpURLConnection.HTTP_OK) { // success
+ //                    BufferedReader in = new BufferedReader(new InputStreamReader(
+ //                            con.getInputStream()));
+ //                    String inputLine;
+ //                    StringBuffer response = new StringBuffer();
+ //
+ //                    while ((inputLine = in.readLine()) != null) {
+ //                        response.append(inputLine);
+ //                    }
+ //                    in.close();
+ //
+ //                    // print result
+ //                    return response.toString();
+ //                } else {
+ //                    System.out.println("GET request not worked");
+ //                }
+
+
+                 byte[] postData       = POST_PARAMS.getBytes();
+                 int    postDataLength = postData.length;
+                 URL obj = new URL(urls[0]);
+                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                 con.setRequestMethod("POST");
+                 con.setRequestProperty("User-Agent", "Mozilla/5.0");
+
+
+                 // For POST only - START
+                 con.setDoOutput(true);
+                 con.setInstanceFollowRedirects( false );
+                 con.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
+                 OutputStream os = con.getOutputStream();
+                 os.write(postData);
+                 os.flush();
+                 os.close();
+                 // For POST only - END
+
+                 int responseCode = con.getResponseCode();
+ //                System.out.println("POST Response Code :: " + responseCode);
+
+
+
+                 if (responseCode == HttpURLConnection.HTTP_OK) { //success
+                     BufferedReader in = new BufferedReader(new InputStreamReader(
+                             con.getInputStream()));
+                     String inputLine;
+                     StringBuffer response = new StringBuffer();
+
+                     while ((inputLine = in.readLine()) != null) {
+                         response.append(inputLine);
+                     }
+                     in.close();
+
+                     // print result
+                     // burada baska bir fonk cagir ve o bastirma islemini yapsin
+                     solution=response.toString();
+ //                    System.out.println(response.toString());
+                 } else {
+                     System.out.println("POST request not worked");
+                 }
+
+             }
+             catch(Exception e){System.out.println("Request not worked");}
+             return "bilge";
+         }
+
+         protected void onPostExecute(Bitmap result) {
+
+         }
+     }*/
     private class DownloadImageTask extends AsyncTask <String, Void, String> {
         protected String doInBackground(String... urls) {
-            try{
-//                URL obj = new URL(urls[0]);
-//                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-//                con.setRequestMethod("GET");
-//                con.setRequestProperty("User-Agent", "Mozilla/5.0");
-//                int responseCode = con.getResponseCode();
-//                System.out.println("GET Response Code :: " + responseCode);
-//                if (responseCode == HttpURLConnection.HTTP_OK) { // success
-//                    BufferedReader in = new BufferedReader(new InputStreamReader(
-//                            con.getInputStream()));
-//                    String inputLine;
-//                    StringBuffer response = new StringBuffer();
-//
-//                    while ((inputLine = in.readLine()) != null) {
-//                        response.append(inputLine);
-//                    }
-//                    in.close();
-//
-//                    // print result
-//                    return response.toString();
-//                } else {
-//                    System.out.println("GET request not worked");
-//                }
 
+               /*
+                   int port = 22;
+                   String server = "134.209.226.2";
+                   String username = "grad";
+                   String password = "kadircaneksi";
+                   String localPath = "data/data/com.example.grad/app_imageDir/"; //yerel depodaki ftp'ye yükleyeceğiniz dosyanın yolu
+                   String remotePath = "/home/grad/grad_project/sudokuSolving/sudoku-examples"; //ftp'deki yolumuz
+                   String newDirectory = "/"; //yeni oluşturacağımız klasörümüz
 
-                byte[] postData       = POST_PARAMS.getBytes();
-                int    postDataLength = postData.length;
-                URL obj = new URL(urls[0]);
-                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-                con.setRequestMethod("POST");
-                con.setRequestProperty("User-Agent", "Mozilla/5.0");
+                   FTPClient ftpClient = new FTPClient(); //ftp clientimiz
+                   File file = new File(localPath); //yükleyeceğimiz dosyamız
 
+                   try {
+                     ftpClient.setType(FTPClient.TYPE_BINARY);
+                       ftpClient.connect(server, port);
+                       ftpClient.login(username, password);
+                       ftpClient.changeDirectory(remotePath); //ftp'mizde yükleyeceğimiz dosyanın yolunnu şu şekilde değiştirebilirsiniz.
+                       ftpClient.createDirectory(newDirectory); //bu şekilde yeni klasör oluşturabilirsiniz.
+                       ftpClient.changeDirectory(newDirectory); //yeni klasörü oluşturduktan sonra yolunuzu değiştirmeyi unutmayın
+                       ftpClient.upload(file);
+                       ftpClient.logout();
+                   } catch (Exception e) {
+                       Log.e("TAG", e.getMessage());
+                   }
+                 return null;*/
 
-                // For POST only - START
-                con.setDoOutput(true);
-                con.setInstanceFollowRedirects( false );
-                con.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
-                OutputStream os = con.getOutputStream();
-                os.write(postData);
-                os.flush();
-                os.close();
-                // For POST only - END
-
-                int responseCode = con.getResponseCode();
-//                System.out.println("POST Response Code :: " + responseCode);
+            // Remember use the required imports (the library as well) using :
 
 
 
-                if (responseCode == HttpURLConnection.HTTP_OK) { //success
-                    BufferedReader in = new BufferedReader(new InputStreamReader(
-                            con.getInputStream()));
-                    String inputLine;
-                    StringBuffer response = new StringBuffer();
+/// then in our function
 
-                    while ((inputLine = in.readLine()) != null) {
-                        response.append(inputLine);
-                    }
-                    in.close();
+            try {
+                JSch ssh = new JSch();
+                Session session = ssh.getSession("grad", "134.209.226.2", 22);
+                // Remember that this is just for testing and we need a quick access, you can add an identity and known_hosts file to prevent
+                // Man In the Middle attacks
+                java.util.Properties config = new java.util.Properties();
+                config.put("StrictHostKeyChecking", "no");
+                session.setConfig(config);
+                session.setPassword("kadircaneksi");
+                //session.setTimeout();
+                session.connect(5000);
+                Channel channel = session.openChannel("sftp");
+                channel.connect();
 
-                    // print result
-                    // burada baska bir fonk cagir ve o bastirma islemini yapsin
-                    solution=response.toString();
-//                    System.out.println(response.toString());
-                } else {
-                    System.out.println("POST request not worked");
+                ChannelSftp sftp = (ChannelSftp) channel;
+
+                sftp.cd("data/data/com.example.grad/app_imageDir/");
+                // If you need to display the progress of the upload, read how to do it in the end of the article
+
+                // use the get method , if you are using android remember to remove "file://" and use only the relative path
+                sftp.put("/var/www/remote/myfile.txt","/storage/0/myfile.txt");
+
+                Boolean success = true;
+
+                if(success){
+                    // The file has been succesfully downloaded
                 }
 
+                channel.disconnect();
+                session.disconnect();
+            } catch (JSchException e) {
+                System.out.println(e.getMessage().toString());
+                System.out.println("ilk catch");
+                e.printStackTrace();
+            } catch (SftpException e) {
+                System.out.println(e.getMessage().toString());
+                System.out.println("ikinci catch");
+                e.printStackTrace();
             }
+
             catch(Exception e){System.out.println("Request not worked");}
             return "bilge";
         }
@@ -332,4 +416,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+
 }
+
+
