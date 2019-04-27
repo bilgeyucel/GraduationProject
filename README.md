@@ -4,7 +4,10 @@ This is the graduation project of Ayşe, Fatma, Hayriye. Just clone and start us
 
 TODO:
 - Improve camera quality !!!!!!!!!!!!
+- Better number recognition with ML
+- Faster SFTP connection 
 - Prepare UI for sudoku handling
+- Add `hint` part to print result part
 - Error Handling
 - Eat Lahmacun
 - (optional) GET method can be turned into POST method for multiple users by sending photo direction in the body
