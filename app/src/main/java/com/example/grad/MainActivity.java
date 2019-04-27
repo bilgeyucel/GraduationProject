@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             print_result.setEnabled(false);
 
         }
-        /*  Onceki State ile alakali bir yerler belki silinebilir baslangic
+        //Onceki State ile alakali bir yerler belki silinebilir baslangic
 
         if(savedInstanceState != null){
             viewModel.readFromBundle(savedInstanceState);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             viewModel.setRating("");
         }
 
-        Onceki State ile alakali bir yerler belki silinebilir bitti */
+        //Onceki State ile alakali bir yerler belki silinebilir bitti */
 
         print_result.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,44 +135,15 @@ public class MainActivity extends AppCompatActivity {
             Bundle extras = data.getExtras();
             Bitmap photo = (Bitmap) extras.get("data");
             image_photo.setImageBitmap(photo);
-
+            saveToInternalStorage(photo);
             // http things
-            String s = encodeToBase64(photo,Bitmap.CompressFormat.PNG,100);
-            int length = s.length();
-            Log.d("COMPRESS", Integer.toString(length));
-            POST_PARAMS = POST_PARAMS + s;
+//            String s = encodeToBase64(photo,Bitmap.CompressFormat.PNG,100);
+//            int length = s.length();
+//            Log.d("COMPRESS", Integer.toString(length));
+//            POST_PARAMS = POST_PARAMS + s;
 
 //         loadImageFromStorage("data/data/com.example.grad/app_imageDir");
             new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
-           /*new AsyncTask<String, Void, String>() {
-                @Override
-                protected String doInBackground(String... params) {
-                    int port = 5000;
-                    String server = "134.209.226.2";
-                    String username = "grad";
-                    String password = "kadircaneksi";
-                    String localPath = "data/data/com.example.grad/app_imageDir/"; //yerel depodaki ftp'ye yükleyeceğiniz dosyanın yolu
-                    String remotePath = "/home/grad/grad_project/sudokuSolving/sudoku-examples"; //ftp'deki yolumuz
-                    String newDirectory = "/"; //yeni oluşturacağımız klasörümüz
-
-                    FTPClient ftpClient = new FTPClient(); //ftp clientimiz
-                    File file = new File(localPath); //yükleyeceğimiz dosyamız
-
-                    try {
-                        ftpClient.setType(FTPClient.TYPE_BINARY);
-                        ftpClient.connect(server, port);
-                        ftpClient.login(username, password);
-                        ftpClient.changeDirectory(remotePath); //ftp'mizde yükleyeceğimiz dosyanın yolunnu şu şekilde değiştirebilirsiniz.
-                        ftpClient.createDirectory(newDirectory); //bu şekilde yeni klasör oluşturabilirsiniz.
-                        ftpClient.changeDirectory(newDirectory); //yeni klasörü oluşturduktan sonra yolunuzu değiştirmeyi unutmayın
-                        ftpClient.upload(file);
-                        ftpClient.logout();
-                    } catch (Exception e) {
-                        Log.e("TAG", e.getMessage());
-                    }
-                    return null;
-                }
-           }.execute();*/
         }
     }
 
@@ -336,40 +307,15 @@ public class MainActivity extends AppCompatActivity {
     private class DownloadImageTask extends AsyncTask <String, Void, String> {
         protected String doInBackground(String... urls) {
 
-               /*
-                   int port = 22;
-                   String server = "134.209.226.2";
-                   String username = "grad";
-                   String password = "kadircaneksi";
-                   String localPath = "data/data/com.example.grad/app_imageDir/"; //yerel depodaki ftp'ye yükleyeceğiniz dosyanın yolu
-                   String remotePath = "/home/grad/grad_project/sudokuSolving/sudoku-examples"; //ftp'deki yolumuz
-                   String newDirectory = "/"; //yeni oluşturacağımız klasörümüz
 
-                   FTPClient ftpClient = new FTPClient(); //ftp clientimiz
-                   File file = new File(localPath); //yükleyeceğimiz dosyamız
-
-                   try {
-                     ftpClient.setType(FTPClient.TYPE_BINARY);
-                       ftpClient.connect(server, port);
-                       ftpClient.login(username, password);
-                       ftpClient.changeDirectory(remotePath); //ftp'mizde yükleyeceğimiz dosyanın yolunnu şu şekilde değiştirebilirsiniz.
-                       ftpClient.createDirectory(newDirectory); //bu şekilde yeni klasör oluşturabilirsiniz.
-                       ftpClient.changeDirectory(newDirectory); //yeni klasörü oluşturduktan sonra yolunuzu değiştirmeyi unutmayın
-                       ftpClient.upload(file);
-                       ftpClient.logout();
-                   } catch (Exception e) {
-                       Log.e("TAG", e.getMessage());
-                   }
-                 return null;*/
-
-            // Remember use the required imports (the library as well) using :
 
 
 
 /// then in our function
-
+            FileInputStream fis = null;
             try {
                 JSch ssh = new JSch();
+
                 Session session = ssh.getSession("grad", "134.209.226.2", 22);
                 // Remember that this is just for testing and we need a quick access, you can add an identity and known_hosts file to prevent
                 // Man In the Middle attacks
@@ -381,19 +327,45 @@ public class MainActivity extends AppCompatActivity {
                 session.connect(5000);
                 Channel channel = session.openChannel("sftp");
                 channel.connect();
-
+                Log.d("grad", "sftp girmis");
                 ChannelSftp sftp = (ChannelSftp) channel;
 
-                sftp.cd("data/data/com.example.grad/app_imageDir/");
+                sftp.cd("/home/grad/grad_project/sudokuSolving/sudoku-examples");
                 // If you need to display the progress of the upload, read how to do it in the end of the article
+//                File f = new File("data/user/0/com.example.grad/app_imageDir","sudoku_unsolved.jpg");
 
+//                fis = new FileInputStream(f);
                 // use the get method , if you are using android remember to remove "file://" and use only the relative path
-                sftp.put("/var/www/remote/myfile.txt","/storage/0/myfile.txt");
-
+//                sftp.put(new FileInputStream(f),f.getName());
+                sftp.put("data/user/0/com.example.grad/app_imageDir/sudoku_unsolved.jpg","yenihal.jpg");
+                Log.d("grad", "sftp bayagi girmis");
                 Boolean success = true;
 
                 if(success){
-                    // The file has been succesfully downloaded
+                    URL obj = new URL(urls[0]);
+                    HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+                    con.setRequestMethod("GET");
+                    con.setRequestProperty("User-Agent", "Mozilla/5.0");
+                    int responseCode = con.getResponseCode();
+                    System.out.println("GET Response Code :: " + responseCode);
+                    if (responseCode == HttpURLConnection.HTTP_OK) { // success
+                        BufferedReader in = new BufferedReader(new InputStreamReader(
+                                con.getInputStream()));
+                        String inputLine;
+                        StringBuffer response = new StringBuffer();
+
+                        while ((inputLine = in.readLine()) != null) {
+                            response.append(inputLine);
+                        }
+                        solution = response.toString();
+                        in.close();
+
+                        // print result
+                        return response.toString();
+                    } else {
+                        System.out.println("GET request not worked");
+                    }
+
                 }
 
                 channel.disconnect();
