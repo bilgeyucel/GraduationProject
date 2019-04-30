@@ -3,7 +3,6 @@
 This is the graduation project of Ayşe, Fatma, Hayriye. Just clone and start using. However, it is not working properly, so, we would be very happy if you could fix some bugs. Thx.
 
 TODO:
-- Improve camera quality !!!!!!!!!!!!
 - Better number recognition with ML
 - Faster SFTP connection 
 - Prepare UI for sudoku handling
