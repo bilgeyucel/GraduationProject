@@ -33,7 +33,6 @@
             android:layout_weight="1"
             android:layout_margin="10dp"
             android:background="#FFC300"
-            android:onClick="launchCamera"
             android:padding="10dp"
             android:text="Take Photo!"
             android:textColor="#C70039" />
