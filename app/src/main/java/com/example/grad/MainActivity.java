@@ -226,18 +226,18 @@ public class MainActivity extends AppCompatActivity {
         return directory.getAbsolutePath();
     }
 
-    private void loadImageFromStorage(String path)
-    {
-        try {
-            File f = new File(path, "sudoku_unsolved.jpg");
-            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
-            ImageView img = (ImageView)findViewById(R.id.image_photo);
-            img.setImageBitmap(b);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    private void loadImageFromStorage(String path)
+//    {
+//        try {
+//            File f = new File(path, "sudoku_unsolved.jpg");
+//            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+//            ImageView img = (ImageView)findViewById(R.id.image_photo);
+//            img.setImageBitmap(b);
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
     private String TAG = "grad";
     @Override
     protected void onResume() {
