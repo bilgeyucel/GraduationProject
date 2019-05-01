@@ -394,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
                 // use the get method , if you are using android remember to remove "file://" and use only the relative path
 //                sftp.put(new FileInputStream(f),f.getName());
 //                sftp.put("data/user/0/com.example.grad/app_imageDir/yenihal.png","bilge.jpg");
-                sftp.put("/storage/emulated/0/Android/data/com.example.grad/files/Pictures/yenihal.png", "yenihal.png");
+                sftp.put("/storage/emulated/0/Android/data/com.example.grad/files/Pictures/yenihal.png", "yenihal.jpg");
                 Log.d("grad", "sftp bayagi girmis");
                 Boolean success = true;
 
