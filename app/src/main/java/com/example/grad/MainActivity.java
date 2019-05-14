@@ -18,6 +18,7 @@ import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +51,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 //import it.sauronsoftware.ftp4j.FTPClient;
 import com.jcraft.jsch.*;
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageView image_photo;
     public static final String KEY = "ourKey";
+    public static final String RECOGNIZED_KEY = "RECOGNIZED_KEY";
     private MainViewModel viewModel;
 
 
@@ -72,9 +75,12 @@ public class MainActivity extends AppCompatActivity {
     private ServerImageObject imageObject;
     private RequestQueue queue;
     private static String POST_PARAMS = "image=";
-    private String solution = "You have not taken a photo yet";
+    private String solution = "Wait for server to finish :)";
+    private String recognized = "";
     TextView tw;
+    GridView gw;
     public String currentPhotoPath;
+    public Uri photoURI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,15 +90,17 @@ public class MainActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
         Button take_photo = findViewById(R.id.take_photo);
-        Button print_result = findViewById(R.id.print_result);
+//        Button print_result = findViewById(R.id.print_result);
+        Button correct_sudoku = findViewById(R.id.correct_result);
         image_photo = findViewById(R.id.image_photo);
-        tw = findViewById(R.id.printView);
+//        tw = findViewById(R.id.printView);
+//        gw = findViewById(R.id.printView);
 
 
         //disable the button if the user doesnt have camera
         if(!hasCamera()){
             take_photo.setEnabled(false);
-            print_result.setEnabled(false);
+//            print_result.setEnabled(false);
 
         }
         //Onceki State ile alakali bir yerler belki silinebilir baslangic
@@ -100,23 +108,33 @@ public class MainActivity extends AppCompatActivity {
         if(savedInstanceState != null){
             viewModel.readFromBundle(savedInstanceState);
         }else{
-            viewModel.setRating("");
+            System.out.println("buraya girdim");
         }
 
         //Onceki State ile alakali bir yerler belki silinebilir bitti */
 
-        print_result.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),PrintActivity.class);
-                intent.putExtra(KEY, solution);
-                startActivity(intent);
-            }
-        });
+//        print_result.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                Intent intent = new Intent(getApplicationContext(),PrintActivity.class);
+//                intent.putExtra(KEY, solution);
+//                startActivity(intent);
+//            }
+//        });
         take_photo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent();
+            }
+        });
+        correct_sudoku.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),CorrectActivity.class);
+                intent.putExtra(RECOGNIZED_KEY, recognized); // solution yerine sadece taninmis olucak ama onu cozucem ben
+                startActivity(intent);
             }
         });
 
@@ -154,7 +172,7 @@ public class MainActivity extends AppCompatActivity {
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
+                photoURI = FileProvider.getUriForFile(this,
                         "com.example.android.fileprovider",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
@@ -187,8 +205,39 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+//            str = getIntent().getStringExtra(MainActivity.KEY);
             // get the photo
-//            Bundle extras = data.getExtras();
+//            Bundle extras = intent.getExtras();
+            try{Bitmap photo = MediaStore.Images.Media.getBitmap(getContentResolver(), photoURI);
+//                image_photo.setImageBitmap(photo);
+ }
+            catch (FileNotFoundException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+            Button print_result = findViewById(R.id.print_result);
+            print_result.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(getApplicationContext(),PrintActivity.class);
+                    intent.putExtra(KEY, solution);
+                    startActivity(intent);
+                }
+            });
+//            Uri photoURI;
+//            Bundle extras = getIntent().getExtras();
+//            if(extras == null) {
+//                photoURI= null;
+//            } else {
+//                photoURI= extras.(MediaStore.EXTRA_OUTPUT);
+//            }
+
+
+//             = getIntent().getStringExtra(MainActivity.KEY);
 //            Bitmap photo = (Bitmap) extras.get("data");
 //            image_photo.setImageBitmap(photo);
 //            saveToInternalStorage(photo);
@@ -226,23 +275,13 @@ public class MainActivity extends AppCompatActivity {
         return directory.getAbsolutePath();
     }
 
-//    private void loadImageFromStorage(String path)
-//    {
-//        try {
-//            File f = new File(path, "sudoku_unsolved.jpg");
-//            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
-//            ImageView img = (ImageView)findViewById(R.id.image_photo);
-//            img.setImageBitmap(b);
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
     private String TAG = "grad";
     @Override
     protected void onResume() {
         super.onResume();
         Log.d(TAG, this.getLocalClassName()+" : onResume called");
+//        solution = getIntent().getStringExtra(KEY);
+//        solution = getIntent().getExtras().getString(KEY);
     }
 
     @Override
@@ -275,91 +314,14 @@ public class MainActivity extends AppCompatActivity {
         viewModel.writeToBundle(outState);
     }
 
-//    public void printResults(String path)
-//    {
-//        startActivity(new Intent(getApplicationContext(),PrintActivity.class));
-//        tw.setText(path);
-//
-//    }
-
-    /* private class DownloadImageTask extends AsyncTask <String, Void, String> {
-         protected String doInBackground(String... urls) {
-             try{
- //                URL obj = new URL(urls[0]);
- //                HttpURLConnection con = (HttpURLConnection) obj.openConnection();
- //                con.setRequestMethod("GET");
- //                con.setRequestProperty("User-Agent", "Mozilla/5.0");
- //                int responseCode = con.getResponseCode();
- //                System.out.println("GET Response Code :: " + responseCode);
- //                if (responseCode == HttpURLConnection.HTTP_OK) { // success
- //                    BufferedReader in = new BufferedReader(new InputStreamReader(
- //                            con.getInputStream()));
- //                    String inputLine;
- //                    StringBuffer response = new StringBuffer();
- //
- //                    while ((inputLine = in.readLine()) != null) {
- //                        response.append(inputLine);
- //                    }
- //                    in.close();
- //
- //                    // print result
- //                    return response.toString();
- //                } else {
- //                    System.out.println("GET request not worked");
- //                }
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        //Log.d("CS310", "on new intent called");
+        solution = intent.getExtras().getString(KEY);
+    }
 
 
-                 byte[] postData       = POST_PARAMS.getBytes();
-                 int    postDataLength = postData.length;
-                 URL obj = new URL(urls[0]);
-                 HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-                 con.setRequestMethod("POST");
-                 con.setRequestProperty("User-Agent", "Mozilla/5.0");
-
-
-                 // For POST only - START
-                 con.setDoOutput(true);
-                 con.setInstanceFollowRedirects( false );
-                 con.setRequestProperty( "Content-Length", Integer.toString( postDataLength ));
-                 OutputStream os = con.getOutputStream();
-                 os.write(postData);
-                 os.flush();
-                 os.close();
-                 // For POST only - END
-
-                 int responseCode = con.getResponseCode();
- //                System.out.println("POST Response Code :: " + responseCode);
-
-
-
-                 if (responseCode == HttpURLConnection.HTTP_OK) { //success
-                     BufferedReader in = new BufferedReader(new InputStreamReader(
-                             con.getInputStream()));
-                     String inputLine;
-                     StringBuffer response = new StringBuffer();
-
-                     while ((inputLine = in.readLine()) != null) {
-                         response.append(inputLine);
-                     }
-                     in.close();
-
-                     // print result
-                     // burada baska bir fonk cagir ve o bastirma islemini yapsin
-                     solution=response.toString();
- //                    System.out.println(response.toString());
-                 } else {
-                     System.out.println("POST request not worked");
-                 }
-
-             }
-             catch(Exception e){System.out.println("Request not worked");}
-             return "bilge";
-         }
-
-         protected void onPostExecute(Bitmap result) {
-
-         }
-     }*/
     private class DownloadImageTask extends AsyncTask <String, Void, String> {
         protected String doInBackground(String... urls) {
 
@@ -408,13 +370,18 @@ public class MainActivity extends AppCompatActivity {
                     if (responseCode == HttpURLConnection.HTTP_OK) { // success
                         BufferedReader in = new BufferedReader(new InputStreamReader(
                                 con.getInputStream()));
-                        String inputLine;
+                        String inputLine,str="";
                         StringBuffer response = new StringBuffer();
 
                         while ((inputLine = in.readLine()) != null) {
                             response.append(inputLine);
+//                            System.out.println(i);
                         }
                         solution = response.toString();
+
+//                        solution= splittemp[2];
+//                        solution = splittemp.toString();
+//                        System.out.println(splittemp);
                         in.close();
 
                         // print result
@@ -422,6 +389,19 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         System.out.println("GET request not worked");
                     }
+//                    if (responseCode == HttpURLConnection.HTTP_OK) { // success
+//                        Scanner reader = new Scanner(new InputStreamReader(
+//                                con.getInputStream()));
+//                        while (reader.hasNext()){
+//                            int i = reader.nextInt();
+//                            System.out.println(i);
+//                        }
+//                        reader.close();
+//                        // print result
+////                        return response.toString();
+//                    } else {
+//                        System.out.println("GET request not worked");
+//                    }
 
                 }
 

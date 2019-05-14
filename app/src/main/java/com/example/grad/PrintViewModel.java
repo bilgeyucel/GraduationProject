@@ -7,31 +7,31 @@ import android.os.Bundle;
 
 public class PrintViewModel extends ViewModel {
 
-    public static final String BUNDLE_KEY = "com.example.grad.print";
+    public static final String BUNDLE_KEY = "com.example.grad.printSolution";
 
-    private MutableLiveData<String> liveCount;
+    private MutableLiveData<String> liveSolution;
 
     public PrintViewModel() {
-        liveCount = new MutableLiveData<>();
-        liveCount.setValue("nulllll");
+        liveSolution = new MutableLiveData<>();
+        liveSolution.setValue("");
     }
 
-    public MutableLiveData<String> getLiveCount() {
-        return liveCount;
+    public MutableLiveData<String> getLiveSolution() {
+        return liveSolution;
     }
 
-    public void setCount(String c) {
-        liveCount.setValue(c);
+    public void setSolution(String c) {
+        liveSolution.setValue(c);
     }
 
-    public String getCount(){
-        return liveCount.getValue();
-    }
+//    public String getCount(){
+//        return liveSolution.getValue();
+//    }
     public void writeToBundle(Bundle bundle) {
-        bundle.putString(BUNDLE_KEY, liveCount.getValue());
+        bundle.putString(BUNDLE_KEY, getLiveSolution().getValue());
     }
 
     public void readFromBundle(Bundle bundle) {
-        setCount(bundle.getString(BUNDLE_KEY));
+        setSolution(bundle.getString(BUNDLE_KEY));
     }
 }
