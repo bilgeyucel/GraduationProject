@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
     private CircleView circularProgress;
     private ServerImageObject imageObject;
     private RequestQueue queue;
-    private static String POST_PARAMS = "image=";
+    private static String POST_PARAMS = "array=";
     private String solution = "Wait for server to finish :)";
     private String recognized = "";
     TextView tw;
@@ -245,7 +245,7 @@ public class MainActivity extends AppCompatActivity {
 //            String s = encodeToBase64(photo,Bitmap.CompressFormat.PNG,100);
 //            int length = s.length();
 //            Log.d("COMPRESS", Integer.toString(length));
-//            POST_PARAMS = POST_PARAMS + s;
+//            POST_PARAMS = POST_PARAMS + ;
 
 //         loadImageFromStorage("data/data/com.example.grad/app_imageDir");
             new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");

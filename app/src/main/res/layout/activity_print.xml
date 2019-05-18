@@ -18,7 +18,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:padding="10dp"
-        android:text="TextView"
+        android:text="textView"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/textView11"
+                android:id="@+id/editText11"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -59,118 +59,108 @@
                 android:textSize="@dimen/font_size" />
 
             <EditText
-                android:id="@+id/textView21"
+                android:id="@+id/editText21"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/textView31"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/textView41"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="" />
-
-            <TextView
-                android:id="@+id/textView51"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/textView61"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/textView71"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/textView81"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-
-            <TextView
-                android:id="@+id/textView91"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/customborder"
-            android:orientation="vertical">
-
-            <EditText
-                android:id="@+id/textView12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:layout_weight="1"
+                android:background="@drawable/customborder"
+
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size"/>
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView22"
+            <EditText
+                android:id="@+id/editText31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView32"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText41"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView42"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText51"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView52"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText61"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView62"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText71"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView72"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText81"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView82"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText91"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView92"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -181,58 +171,121 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/textView13"
+                android:id="@+id/editText12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView33"
+            <EditText
+                android:id="@+id/editText22"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView43"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView53"
+            <EditText
+                android:id="@+id/editText32"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView63"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView73"
+            <EditText
+                android:id="@+id/editText42"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView83"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView93"
+            <EditText
+                android:id="@+id/editText52"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText62"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText72"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText82"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText92"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -242,59 +295,122 @@
             android:background="@drawable/customborder"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView14"
+            <EditText
+                android:id="@+id/editText13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textVie24"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView34"
+            <EditText
+                android:id="@+id/editText23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView44"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView54"
+            <EditText
+                android:id="@+id/editText33"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView64"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView74"
+            <EditText
+                android:id="@+id/editText43"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView84"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView94"
+            <EditText
+                android:id="@+id/editText53"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText63"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText73"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText83"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText93"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -304,59 +420,121 @@
             android:background="@drawable/customborder"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView15"
+            <EditText
+                android:id="@+id/editText14"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView25"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+            <EditText
+                android:id="@+id/editText24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView35"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView45"
+            <EditText
+                android:id="@+id/editText34"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView55"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView65"
+            <EditText
+                android:id="@+id/editText44"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView75"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView85"
+            <EditText
+                android:id="@+id/editText54"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView95"
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText64"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText74"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText84"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText94"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -366,59 +544,122 @@
             android:background="@drawable/customborder"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView16"
+            <EditText
+                android:id="@+id/editText15"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView26"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView36"
+            <EditText
+                android:id="@+id/editText25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView46"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView56"
+            <EditText
+                android:id="@+id/editText35"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView66"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView76"
+            <EditText
+                android:id="@+id/editText45"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView86"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView96"
+            <EditText
+                android:id="@+id/editText55"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText65"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText75"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText85"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText95"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -428,59 +669,122 @@
             android:background="@drawable/customborder"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView17"
+            <EditText
+                android:id="@+id/editText16"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView27"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView37"
+            <EditText
+                android:id="@+id/editText26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView47"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView57"
+            <EditText
+                android:id="@+id/editText36"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView67"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView77"
+            <EditText
+                android:id="@+id/editText46"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView87"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView97"
+            <EditText
+                android:id="@+id/editText56"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText66"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText76"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText86"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText96"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -490,59 +794,122 @@
             android:background="@drawable/customborder"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView18"
+            <EditText
+                android:id="@+id/editText17"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView28"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView38"
+            <EditText
+                android:id="@+id/editText27"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView48"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView58"
+            <EditText
+                android:id="@+id/editText37"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView68"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView78"
+            <EditText
+                android:id="@+id/editText47"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView88"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView98"
+            <EditText
+                android:id="@+id/editText57"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText67"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText77"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText87"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText97"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
         </LinearLayout>
 
         <LinearLayout
@@ -552,61 +919,248 @@
             android:background="@drawable/customborder"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/textView19"
+            <EditText
+                android:id="@+id/editText18"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView29"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView39"
+            <EditText
+                android:id="@+id/editText28"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView49"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView59"
+            <EditText
+                android:id="@+id/editText38"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView69"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView79"
+            <EditText
+                android:id="@+id/editText48"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
 
-            <TextView
-                android:id="@+id/textView89"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
 
-            <TextView
-                android:id="@+id/textView99"
+            <EditText
+                android:id="@+id/editText58"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="TextView" />
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText68"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText78"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText88"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText98"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/customborder"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/editText19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText29"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size"
+                />
+
+            <EditText
+                android:id="@+id/editText39"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText49"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText59"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText69"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText79"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText89"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
+
+            <EditText
+                android:id="@+id/editText99"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:background="@drawable/customborder"
+
+                android:inputType="number"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/font_size" />
         </LinearLayout>
     </LinearLayout>
 
