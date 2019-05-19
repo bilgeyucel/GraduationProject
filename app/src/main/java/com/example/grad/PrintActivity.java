@@ -2,6 +2,7 @@ package com.example.grad;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 import static android.content.Intent.FLAG_ACTIVITY_SINGLE_TOP;
 
@@ -37,21 +40,24 @@ public class PrintActivity extends AppCompatActivity {
     private Button saveButton;
     private Button hintButton;
     private Button solutionButton;
-    public String splitrecognized[];
-    public String splitimageSolution[];
-    public Boolean modifiableStatus = true;
+    public String splitrecognized[] = new String[81];
+    public String splitimageSolution[]= new String[81];
+    public Boolean modifiableStatus = false;
     private PrintViewModel viewModel;
+    String recognizedSudokuErrorString="";
     String str;
     public Boolean successFlag = false;
     public String recognizedFromServerSolution = "henuz yok";
     public String recognized = "henuz yok";
     public String imageSolution = "henuz yok";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_print);
         viewModel = ViewModelProviders.of(this).get(PrintViewModel.class);
+        final TextView solution = findViewById(R.id.printView);
         saveButton = findViewById(R.id.saveButton);
         modifySwitch =findViewById(R.id.switch1);
         hintButton = findViewById(R.id.hintButton);
@@ -1421,7 +1427,7 @@ public class PrintActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                splitrecognized[73] = editText93.getText().toString();
+                splitrecognized[73] = editText92.getText().toString();
             }
         });
         editText93.addTextChangedListener(new TextWatcher() {
@@ -1537,6 +1543,12 @@ public class PrintActivity extends AppCompatActivity {
             }
         });
 
+        //SET ALL EDITTEXT UNMODIFIABLE
+
+        for(EditText e: editTextList){
+            e.setEnabled(modifiableStatus);
+        }
+
 
 
         if (savedInstanceState != null) {
@@ -1562,6 +1574,9 @@ public class PrintActivity extends AppCompatActivity {
                 POST_PARAMS = POST_PARAMS + newString;
                 new DownloadImageTask().execute("http://134.209.226.2:5000/api/recognizedSudoku");
 
+                solution.setText(recognizedSudokuErrorString);
+
+
 
 
             }
@@ -1581,11 +1596,22 @@ public class PrintActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try{
-                    editText97.setText(splitrecognized[78]);
+                    // nextInt is normally exclusive of the top value,
+                    // so add 1 to make it inclusive
+                    int randomNum = randInt(0,80);
+//                    solution.setText(splitimageSolution[randomNum]+" " + randomNum);
+                    EditText hintEditText = editTextList.get(randomNum);
+                    hintEditText.setTextColor(Color.RED);
+
+                    hintEditText.setText(splitimageSolution[randomNum]);
+
+
                 }
                 catch(Exception e)
                 {
 
+//                    String newString = Arrays.toString(splitrecognized);
+                    solution.setText("Since there is no recognized sudoku, you cannot take any hints!");
                 }
 
             }
@@ -1599,10 +1625,13 @@ public class PrintActivity extends AppCompatActivity {
                         e.setText(splitimageSolution[i]);
                         i++;
                     }
+                    solution.setText("SOLUTION OF THE SUDOKU");
                 }
                 catch(Exception e)
                 {
 
+//                    String newString = Arrays.toString(splitimageSolution);
+                    solution.setText("THERE IS NO SOLUTION :(");
                 }
             }
         });
@@ -1626,8 +1655,8 @@ public class PrintActivity extends AppCompatActivity {
                 arr[i] = a;
                 i++;
             }
-            TextView solution = findViewById(R.id.printView);
-            solution.setText(getIntent().getStringExtra(MainActivity.KEY));
+//            TextView solution = findViewById(R.id.printView);
+//            solution.setText(getIntent().getStringExtra(MainActivity.KEY));
 //            final int k = 0;
 ////            for(final EditText e: editTextList) {
 //            for(int m = 0: m<editTextList.size(); m++) {
@@ -1677,7 +1706,6 @@ public class PrintActivity extends AppCompatActivity {
                 j++;
             }
         }catch (Exception e1){
-            TextView solution = findViewById(R.id.printView);
             solution.setText(getIntent().getStringExtra(MainActivity.KEY));
 
         }
@@ -1749,7 +1777,7 @@ public class PrintActivity extends AppCompatActivity {
                 if (responseCode == HttpURLConnection.HTTP_OK) { // success
                     BufferedReader in = new BufferedReader(new InputStreamReader(
                             con.getInputStream()));
-                    String inputLine, str = "";
+                    String inputLine;
                     StringBuffer response = new StringBuffer();
 
                     while ((inputLine = in.readLine()) != null) {
@@ -1759,14 +1787,10 @@ public class PrintActivity extends AppCompatActivity {
                     String temp = response.toString();
                     imageSolution = temp.substring(1, 242);
                     splitimageSolution = imageSolution.split(", ", 0);
-                    System.out.println(splitimageSolution);
-//                        solution= splittemp[2];
-//                        solution = splittemp.toString();
-//                        System.out.println(splittemp);
-                    in.close();
 
-                    // print result
+                    in.close();
                     successFlag = true;
+                    recognizedSudokuErrorString = "Solution is saved";
                     return imageSolution;
                 } else {
                     System.out.println("GET request not worked");
@@ -1774,9 +1798,30 @@ public class PrintActivity extends AppCompatActivity {
             }
             catch(Exception e){
                 System.out.println("Request not worked");
-
+                successFlag = false;
+                recognizedSudokuErrorString = "There is an error with the sudoku, please check again.";
+//                solution.setText("Since there is no recognized sudoku, you cannot take any hints!");
             }
             return "recognition is not successful";
         }
+    }
+    public static int randInt(int min, int max) {
+
+        // NOTE: This will (intentionally) not run as written so that folks
+        // copy-pasting have to think about how to initialize their
+        // Random instance.  Initialization of the Random instance is outside
+        // the main scope of the question, but some decent options are to have
+        // a field that is initialized once and then re-used as needed or to
+        // use ThreadLocalRandom (if using at least Java 1.7).
+        //
+        // In particular, do NOT do 'Random rand = new Random()' here or you
+        // will get not very good / not very random results.
+        Random random = new Random();
+
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = random.nextInt((max - min) + 1) + min;
+
+        return randomNum;
     }
 }

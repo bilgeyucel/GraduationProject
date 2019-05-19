@@ -46,21 +46,14 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import android.arch.lifecycle.ViewModelProviders;
-import java.nio.charset.StandardCharsets;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 
-//import it.sauronsoftware.ftp4j.FTPClient;
 import com.jcraft.jsch.*;
 
 
 public class MainActivity extends AppCompatActivity {
 
     static final int REQUEST_IMAGE_CAPTURE = 1;
-    ImageView image_photo;
+//    ImageView image_photo;
     public static final String KEY = "ourKey";
     public static final String RECOGNIZED_KEY = "RECOGNIZED_KEY";
     private MainViewModel viewModel;
@@ -71,14 +64,8 @@ public class MainActivity extends AppCompatActivity {
     public long timeBeforeUpload;
     public long fileSize;
 
-    private CircleView circularProgress;
-    private ServerImageObject imageObject;
-    private RequestQueue queue;
-    private static String POST_PARAMS = "array=";
     private String solution = "Wait for server to finish :)";
     private String recognized = "";
-    TextView tw;
-    GridView gw;
     public String currentPhotoPath;
     public Uri photoURI;
 
@@ -90,11 +77,8 @@ public class MainActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
         Button take_photo = findViewById(R.id.take_photo);
-//        Button print_result = findViewById(R.id.print_result);
-        Button correct_sudoku = findViewById(R.id.correct_result);
-        image_photo = findViewById(R.id.image_photo);
-//        tw = findViewById(R.id.printView);
-//        gw = findViewById(R.id.printView);
+//        image_photo = findViewById(R.id.image_photo);
+
 
 
         //disable the button if the user doesnt have camera
@@ -127,14 +111,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dispatchTakePictureIntent();
-            }
-        });
-        correct_sudoku.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(),CorrectActivity.class);
-                intent.putExtra(RECOGNIZED_KEY, recognized); // solution yerine sadece taninmis olucak ama onu cozucem ben
-                startActivity(intent);
             }
         });
 
@@ -184,14 +160,9 @@ public class MainActivity extends AppCompatActivity {
 
     private File createImageFile() throws IOException {
         // Create an image file name
-//        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-//        String imageFileName = "JPEG_" + timeStamp + "_";
+
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-//        File image = File.createTempFile(
-//                "yenihal",  /* prefix */
-//                ".jpg",         /* suffix */
-//                storageDir      /* directory */
-//        );
+
         File image = new File(storageDir +"/yenihal.png");
 
 
@@ -205,9 +176,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-//            str = getIntent().getStringExtra(MainActivity.KEY);
-            // get the photo
-//            Bundle extras = intent.getExtras();
+
             try{Bitmap photo = MediaStore.Images.Media.getBitmap(getContentResolver(), photoURI);
 //                image_photo.setImageBitmap(photo);
  }
@@ -228,26 +197,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             });
-//            Uri photoURI;
-//            Bundle extras = getIntent().getExtras();
-//            if(extras == null) {
-//                photoURI= null;
-//            } else {
-//                photoURI= extras.(MediaStore.EXTRA_OUTPUT);
-//            }
 
-
-//             = getIntent().getStringExtra(MainActivity.KEY);
-//            Bitmap photo = (Bitmap) extras.get("data");
-//            image_photo.setImageBitmap(photo);
-//            saveToInternalStorage(photo);
-            // http things
-//            String s = encodeToBase64(photo,Bitmap.CompressFormat.PNG,100);
-//            int length = s.length();
-//            Log.d("COMPRESS", Integer.toString(length));
-//            POST_PARAMS = POST_PARAMS + ;
-
-//         loadImageFromStorage("data/data/com.example.grad/app_imageDir");
             new DownloadImageTask().execute("http://134.209.226.2:5000/api/photoSend");
         }
     }
