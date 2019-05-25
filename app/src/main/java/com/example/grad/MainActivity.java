@@ -298,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("grad", "sftp girmis");
                 ChannelSftp sftp = (ChannelSftp) channel;
 
-                sftp.cd("/home/grad/grad_project/sudokuSolving/sudoku-examples");
+                sftp.cd("/home/grad/sudokuSolver/sudoku-examples");
                 // If you need to display the progress of the upload, read how to do it in the end of the article
 //                File f = new File("data/user/0/com.example.grad/app_imageDir","sudoku_unsolved.jpg");
 
@@ -307,7 +307,7 @@ public class MainActivity extends AppCompatActivity {
 //                sftp.put(new FileInputStream(f),f.getName());
 //                sftp.put("data/user/0/com.example.grad/app_imageDir/yenihal.png","bilge.jpg");
                 sftp.put("/storage/emulated/0/Android/data/com.example.grad/files/Pictures/yenihal.png", "yenihal.jpg");
-                Log.d("grad", "sftp bayagi girmis");
+//                Log.d("grad", "sftp bayagi girmis");
                 Boolean success = true;
 
                 if(success){
@@ -337,6 +337,7 @@ public class MainActivity extends AppCompatActivity {
                         // print result
                         return response.toString();
                     } else {
+                        solution = "photo is not recognized as a sudoku";
                         System.out.println("GET request not worked");
                     }
 //                    if (responseCode == HttpURLConnection.HTTP_OK) { // success
@@ -370,7 +371,7 @@ public class MainActivity extends AppCompatActivity {
             catch(Exception e){System.out.println("Request not worked");}
             return "bilge";
         }
-
+//        @Override
         protected void onPostExecute(Bitmap result) {
 
         }

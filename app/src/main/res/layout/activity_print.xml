@@ -14,13 +14,12 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:padding="10dp"
         android:text=""
         android:textColor="@color/colorPurpleButton"
-        android:textSize="24sp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -60,7 +59,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText21"
@@ -73,7 +73,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText31"
@@ -86,7 +87,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText41"
@@ -99,7 +101,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText51"
@@ -112,7 +115,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText61"
@@ -125,7 +129,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText71"
@@ -138,7 +143,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText81"
@@ -151,7 +157,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText91"
@@ -164,7 +171,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -185,7 +193,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText22"
@@ -198,7 +207,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText32"
@@ -211,7 +221,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText42"
@@ -224,7 +235,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText52"
@@ -237,7 +249,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText62"
@@ -250,7 +263,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText72"
@@ -263,7 +277,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText82"
@@ -276,7 +291,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText92"
@@ -289,7 +305,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -310,7 +327,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText23"
@@ -323,7 +341,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText33"
@@ -336,7 +355,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText43"
@@ -349,7 +369,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText53"
@@ -362,7 +383,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText63"
@@ -375,7 +397,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText73"
@@ -388,7 +411,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText83"
@@ -401,7 +425,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText93"
@@ -414,7 +439,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -435,7 +461,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText24"
@@ -448,7 +475,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText34"
@@ -461,7 +489,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText44"
@@ -474,7 +503,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText54"
@@ -487,7 +517,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText64"
@@ -500,7 +531,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText74"
@@ -513,7 +545,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText84"
@@ -526,7 +559,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText94"
@@ -539,7 +573,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -560,7 +595,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText25"
@@ -573,7 +609,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText35"
@@ -586,7 +623,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText45"
@@ -599,7 +637,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText55"
@@ -612,7 +651,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText65"
@@ -625,7 +665,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText75"
@@ -638,7 +679,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText85"
@@ -651,7 +693,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText95"
@@ -664,7 +707,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -685,7 +729,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText26"
@@ -698,7 +743,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText36"
@@ -711,7 +757,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText46"
@@ -724,7 +771,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText56"
@@ -737,7 +785,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText66"
@@ -750,7 +799,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText76"
@@ -763,7 +813,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText86"
@@ -776,7 +827,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText96"
@@ -789,7 +841,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -810,7 +863,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText27"
@@ -823,7 +877,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText37"
@@ -836,7 +891,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText47"
@@ -849,7 +905,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText57"
@@ -862,7 +919,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText67"
@@ -875,7 +933,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText77"
@@ -888,7 +947,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText87"
@@ -901,7 +961,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText97"
@@ -914,7 +975,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -935,7 +997,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText28"
@@ -948,7 +1011,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText38"
@@ -961,7 +1025,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText48"
@@ -974,7 +1039,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText58"
@@ -987,7 +1053,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText68"
@@ -1000,7 +1067,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText78"
@@ -1013,7 +1081,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText88"
@@ -1026,7 +1095,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText98"
@@ -1039,7 +1109,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
 
         <LinearLayout
@@ -1060,7 +1131,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText29"
@@ -1073,7 +1145,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText39"
@@ -1086,7 +1159,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText49"
@@ -1099,7 +1173,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText59"
@@ -1112,7 +1187,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText69"
@@ -1125,7 +1201,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText79"
@@ -1138,7 +1215,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText89"
@@ -1151,7 +1229,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
 
             <EditText
                 android:id="@+id/editText99"
@@ -1164,7 +1243,8 @@
                 android:inputType="number"
                 android:text=""
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/font_size" />
+                android:textSize="@dimen/font_size"
+                android:maxLength="1"/>
         </LinearLayout>
     </LinearLayout>
 
