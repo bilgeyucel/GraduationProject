@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
     private String recognized = "";
     public String currentPhotoPath;
     public Uri photoURI;
+    public TextView startView;
+    public Button print_result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,9 @@ public class MainActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(MainViewModel.class);
 
         Button take_photo = findViewById(R.id.take_photo);
+        startView = findViewById(R.id.startView);
+        print_result = findViewById(R.id.print_result);
+        print_result.setVisibility(View.INVISIBLE);
 //        image_photo = findViewById(R.id.image_photo);
 
 
@@ -187,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
-            Button print_result = findViewById(R.id.print_result);
+
             print_result.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -202,36 +207,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private String saveToInternalStorage(Bitmap bitmapImage){
-        ContextWrapper cw = new ContextWrapper(getApplicationContext());
-        File directory = cw.getDir("imageDir", Context.MODE_PRIVATE);
-        // Create imageDir
-        File mypath = new File(directory,"sudoku_unsolved.jpg");
-
-        FileOutputStream fos = null;
-        try {
-            fos = new FileOutputStream(mypath);
-            // Use the compress method on the BitMap object to write image to the OutputStream
-            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                fos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return directory.getAbsolutePath();
-    }
 
     private String TAG = "grad";
     @Override
     protected void onResume() {
         super.onResume();
         Log.d(TAG, this.getLocalClassName()+" : onResume called");
-//        solution = getIntent().getStringExtra(KEY);
-//        solution = getIntent().getExtras().getString(KEY);
     }
 
     @Override
@@ -271,19 +252,23 @@ public class MainActivity extends AppCompatActivity {
         solution = intent.getExtras().getString(KEY);
     }
 
+    boolean foundSolution;
+    private class DownloadImageTask extends AsyncTask <String, Integer, String> {
+        @Override
+        protected void onPreExecute() {
+//            super.onPreExecute();
+            startView.setText("The photo is being sent to the server");
+            print_result.setVisibility(View.INVISIBLE);
 
-    private class DownloadImageTask extends AsyncTask <String, Void, String> {
+        }
+
+        @Override
         protected String doInBackground(String... urls) {
 
-
-
-
-
-/// then in our function
             FileInputStream fis = null;
             try {
                 JSch ssh = new JSch();
-
+                foundSolution = false;
                 Session session = ssh.getSession("grad", "134.209.226.2", 22);
                 // Remember that this is just for testing and we need a quick access, you can add an identity and known_hosts file to prevent
                 // Man In the Middle attacks
@@ -299,13 +284,6 @@ public class MainActivity extends AppCompatActivity {
                 ChannelSftp sftp = (ChannelSftp) channel;
 
                 sftp.cd("/home/grad/sudokuSolver/sudoku-examples");
-                // If you need to display the progress of the upload, read how to do it in the end of the article
-//                File f = new File("data/user/0/com.example.grad/app_imageDir","sudoku_unsolved.jpg");
-
-//                fis = new FileInputStream(f);
-                // use the get method , if you are using android remember to remove "file://" and use only the relative path
-//                sftp.put(new FileInputStream(f),f.getName());
-//                sftp.put("data/user/0/com.example.grad/app_imageDir/yenihal.png","bilge.jpg");
                 sftp.put("/storage/emulated/0/Android/data/com.example.grad/files/Pictures/yenihal.png", "yenihal.jpg");
 //                Log.d("grad", "sftp bayagi girmis");
                 Boolean success = true;
@@ -325,55 +303,42 @@ public class MainActivity extends AppCompatActivity {
 
                         while ((inputLine = in.readLine()) != null) {
                             response.append(inputLine);
-//                            System.out.println(i);
                         }
                         solution = response.toString();
 
-//                        solution= splittemp[2];
-//                        solution = splittemp.toString();
-//                        System.out.println(splittemp);
                         in.close();
-
+                        foundSolution = true;
                         // print result
                         return response.toString();
                     } else {
                         solution = "photo is not recognized as a sudoku";
                         System.out.println("GET request not worked");
                     }
-//                    if (responseCode == HttpURLConnection.HTTP_OK) { // success
-//                        Scanner reader = new Scanner(new InputStreamReader(
-//                                con.getInputStream()));
-//                        while (reader.hasNext()){
-//                            int i = reader.nextInt();
-//                            System.out.println(i);
-//                        }
-//                        reader.close();
-//                        // print result
-////                        return response.toString();
-//                    } else {
-//                        System.out.println("GET request not worked");
-//                    }
-
                 }
 
                 channel.disconnect();
                 session.disconnect();
             } catch (JSchException e) {
-                System.out.println(e.getMessage().toString());
-                System.out.println("ilk catch");
+                System.out.println(e.getMessage());
                 e.printStackTrace();
             } catch (SftpException e) {
-                System.out.println(e.getMessage().toString());
-                System.out.println("ikinci catch");
+                System.out.println(e.getMessage());
                 e.printStackTrace();
             }
 
             catch(Exception e){System.out.println("Request not worked");}
             return "bilge";
         }
-//        @Override
-        protected void onPostExecute(Bitmap result) {
 
+        @Override
+        protected void onPostExecute(String r) {
+            if (foundSolution==true) {
+                startView.setText("You may press the print result button to see the solution or take a hint now!");
+                print_result.setVisibility(View.VISIBLE);
+            }
+            else{
+                startView.setText("There is a problem with the server, please try it again!");
+            }
         }
     }
 

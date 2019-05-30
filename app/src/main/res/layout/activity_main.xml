@@ -21,7 +21,7 @@
         android:layout_marginRight="8dp"
         android:layout_weight="5"
         android:padding="10dp"
-        android:text="WELCOME TO THE SUDOKU SOLVER!\n \n Please take a photo first"
+        android:text="WELCOME TO THE SUDOKU SOLVER!\n \n Please take a photo"
         android:gravity="center"
         android:textColor="@color/colorPurpleButton"
         android:textSize="24sp" />
@@ -42,8 +42,7 @@
             android:layout_margin="10dp"
             android:background="#ABA2A7"
             android:padding="2dp"
-            android:text="Take Photo!"
-            android:textColor="#C70039" />
+            android:text="Take Photo!" />
 
         <Button
             android:id="@+id/print_result"
@@ -53,8 +52,7 @@
             android:layout_margin="10dp"
             android:background="#ABA2A7"
             android:padding="5dp"
-            android:text="@string/print_name"
-            android:textColor="#C70039" />
+            android:text="@string/print_name" />
 
     </LinearLayout>
 

@@ -1976,6 +1976,11 @@ public class PrintActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                for(int i = 0; i<81;i++){
+                    if(splitrecognized[i]==null){
+                        splitrecognized[i]="0";
+                    }
+                }
 
                 String newString = Arrays.toString(splitrecognized);
 
@@ -2014,16 +2019,21 @@ public class PrintActivity extends AppCompatActivity {
                         solution.setText("No hints for the sudoku, please check the board again");
                     }
                     else{
+                        int count = 0;
                         boolean found = false;
                         while(found==false){
+                            count++;
                             int randomNum = randInt(0,80);
 //                    solution.setText(splitimageSolution[randomNum]+" " + randomNum);
                             EditText hintEditText = editTextList.get(randomNum);
-                            if (splitrecognized[randomNum]=="0"){
+                            if (splitrecognized[randomNum]=="0" ){
                                 hintEditText.setTextColor(Color.RED);
 
                                 hintEditText.setText(splitimageSolution[randomNum]);
                                 found = true;
+                            }
+                            else if(count==100){
+                                break;
                             }
 
                         }
@@ -2105,7 +2115,7 @@ public class PrintActivity extends AppCompatActivity {
                     splitimageSolution = imageSolution.split(", ", 0);
                 }
             }
-            catch(Exception e){
+            catch(Exception e){ //Sudoku ama yanlis tanindigi icin cozum yoksa
                 if (isSudoku){solution.setText("Please correct the numbers, no solution found for these numbers.");}
             }
 
@@ -2128,7 +2138,6 @@ public class PrintActivity extends AppCompatActivity {
                         j++;
 
                     }
-//                    solution.setText("");
                 }
                     else if(isSudoku==false){
                     solution.setText("Oops couldn't be recognized!");
@@ -2139,7 +2148,8 @@ public class PrintActivity extends AppCompatActivity {
             }
 
         }catch (Exception e1){
-            solution.setText("Something went wrong! Please go back and take the photo again");
+//            solution.setText("Something went wrong! Please go back and take the photo again");
+            solution.setText("Oops couldn't be recognized!");
 
         }
 
@@ -2257,7 +2267,7 @@ public class PrintActivity extends AppCompatActivity {
         protected void onPostExecute(String r) {
             if (isSolution){
 
-                solution.setText("New numbers are saved!");
+                solution.setText("New numbers are saved! You may take a hint or see the solution");
             }
             else if (isSolution== false){
 
